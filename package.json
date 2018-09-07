@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "test": "ts-node ./node_modules/.bin/tape **/*.test.ts | tap-spec",
+    "watch-test": "nodemon -e ts -w ./src -x yarn test"
+  },
+  "dependencies": {
+    "@types/tape": "^4.2.32",
+    "nodemon": "^1.18.4",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.1",
+    "ts-node": "^7.0.1",
+    "typedoc": "^0.12.0",
+    "typescript": "^3.0.1"
+  }
+}
