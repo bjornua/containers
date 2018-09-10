@@ -10,9 +10,6 @@ export class Ok<R, E> {
   map<T>(f: (r: R) => T): Result<T, E> {
     return new Ok(f(this.result));
   }
-  and<T>(f: (r: R) => Result<T, E>): Result<T, E> {
-    return f(this.result);
-  }
   unwrap(): R {
     return this.result;
   }
@@ -32,9 +29,6 @@ export class Err<R, E> {
     this.error = e;
   }
   map<T>(f: (r: R) => T): Result<T, E> {
-    return new Err(this.error);
-  }
-  and<T>(f: (r: R) => Result<T, E>): Result<T, E> {
     return new Err(this.error);
   }
   unwrap(): R {

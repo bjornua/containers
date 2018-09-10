@@ -5,7 +5,7 @@ This container represents an optional value. You can create a `Option<T>` by cal
 - `Some('Hello world')`
 - `None()`
 
-### Methods
+### Methods and variables
 
 - [Option.some](#optionsome)
 - [Option.value](#optionvalue)
@@ -13,30 +13,6 @@ This container represents an optional value. You can create a `Option<T>` by cal
 - [Option.and()](#optionand)
 - [Option.unwrap()](#optionunwrap)
 - [Option.unwrapOr()](#optionunwrapor)
-
-### Full example
-
-```javascript
-import { Option, Some, None } from "containers-ts";
-
-function toNumber(s: string): Option<number> {
-  const number = Number(s);
-  if (isNaN(number)) {
-    return new None();
-  }
-  return new Some(number);
-}
-
-function addToString(s: string, n: number): Option<string> {
-  return toNumber("4").map(n => String(n + 1));
-}
-
-console.log(addToString("4", 4));
-// Outputs: Some("8")
-
-console.log(addToString("Vertical Strategy", 4));
-// Outputs: None
-```
 
 ## Option.map()
 
@@ -84,7 +60,7 @@ In general, because this function may throw, use of [.unwrap()](#optionunwrap) u
 - [.unwrap()](#optionunwrap) can be used when an `Option` is guaranteed to hold a value.
 - [.unwrap()](#optionunwrap) can be used when writing first versions of software and refactored later
 
-### Example:
+### Example
 
 ```typescript
 const helloWorld = new Some("Hello world");
@@ -93,18 +69,43 @@ const helloWorld = new Some("Hello world");
 console.log(helloWorld.unwrap());
 ```
 
-## Option.unwrapOr(default)
+## Option.unwrapOr()
 
 Returns the internal value of `Option<T>` if any, otherwise a default value.
 
 ### Example
 
 ```typescript
-const helloWorld = new Some("Hello world");
+const helloWorld = new Some("Hello World");
+const none = new None();
 
-// Outputs 'Some("Hello world")'
-console.log(helloWorld);
+// Outputs 'Hello World'
+console.log(helloWorld.unwrapOr("Hello Vertical"));
 
-// Outputs 'Hello world'
-console.log(helloWorld.unwrap());
+// Outputs 'Hello Vertical'
+console.log(none.unwrapOr("Hello Vertical"));
+```
+
+## Full example
+
+```javascript
+import { Option, Some, None } from "containers-ts";
+
+function toNumber(s: string): Option<number> {
+  const number = Number(s);
+  if (isNaN(number)) {
+    return new None();
+  }
+  return new Some(number);
+}
+
+function addToString(s: string, n: number): Option<string> {
+  return toNumber("4").map(n => String(n + 1));
+}
+
+// Outputs: Some("8")
+console.log(addToString("4", 4));
+
+// Outputs: None
+console.log(addToString("Vertical Strategy", 4));
 ```
