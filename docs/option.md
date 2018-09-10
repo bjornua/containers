@@ -7,12 +7,15 @@ This container represents an optional value. You can create a `Option<T>` by cal
 
 ### Methods and variables
 
-- [Option.some](#optionsome)
-- [Option.value](#optionvalue)
+- [Option.some and Option.value](#optionsomeandoptionvalue)
 - [Option.map()](#optionmap)
 - [Option.and()](#optionand)
 - [Option.unwrap()](#optionunwrap)
 - [Option.unwrapOr()](#optionunwrapor)
+
+## Option.some and Option.value
+
+`TODO`
 
 ## Option.map()
 
