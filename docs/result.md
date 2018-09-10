@@ -7,7 +7,7 @@ This container represents an optional value. You can create a `Result<T, E>` by 
 
 ### Methods and variables
 
-- [Result.ok, Result.result and Result.error](#resultokresultresultandresulterror)
+- [Result.ok, Result.result and Result.error](##resultok-resultresult-and-resulterror)
 - [Result.map()](#resultmap)
 - [Result.unwrap()](#resultunwrap)
 - [Result.unwrapOr()](#resultunwrapor)
